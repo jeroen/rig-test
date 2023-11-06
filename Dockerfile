@@ -5,6 +5,8 @@ RUN apt-get update && apt-get install -y curl &&\
     sh -c 'echo "deb http://rig.r-pkg.org/deb rig main" > /etc/apt/sources.list.d/rig.list' &&\
     apt update && apt install r-rig
 
+ENV R_LIBS_USER=/opt/R/current/lib/R/library
+
 RUN rig add 4.3.0
 
 RUN R -e "install.packages('jsonlite')"
